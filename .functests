@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Copyright (c) 2016 Red Hat, Inc.
+#
+# This file is part of libgfapi-python project which is a
+# subproject of GlusterFS ( www.gluster.org)
+#
+# This file is licensed to you under your choice of the GNU Lesser
+# General Public License, version 3 or any later version (LGPLv3 or
+# later), or the GNU General Public License, version 2 (GPLv2), in all
+# cases as published by the Free Software Foundation.
+
+# This program expects to be run by tox in a virtual python environment
+# so that it does not pollute the host development system
+
+SRC_DIR=$(python -c "import os; print os.path.dirname(os.path.realpath('$0'))")
+set -e
+cd ${SRC_DIR}
+
+nosetests -v --exe test/functional
+rvalue=$?
+cd -
+exit $rvalue
