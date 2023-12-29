@@ -1,10 +1,5 @@
+dist
+build
 *.py[co]
-.tox
 *.egg
 *.egg-info
-.coverage
-cover
-pycscope.*
-build
-dist
-doc/_build
